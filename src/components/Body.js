@@ -2,6 +2,7 @@ import RestaurauntCard from "./RestaurauntCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   // Local State Variable - Super powerful variable
@@ -29,22 +30,33 @@ const Body = () => {
     );
   };
 
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks like you're offline!! Please check your internet connection;
+      </h1>
+    );
+  }
+
   // Conditional Rendering
   return listOfRestauraunts.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="px-4 py-1 bg-green-100 m-4 rounded-lg"
             onClick={() => {
               //Filter the restauraunt  cards and update the ui
 
@@ -58,8 +70,9 @@ const Body = () => {
             Search
           </button>
         </div>
+        <div className="search m-4 p-4 flex items-center">
         <button
-          className="filter-btn"
+          className="px-4 py-2 bg-gray-100 rounded-lg"
           onClick={() => {
             const filteredList = listOfRestauraunts.filter(
               (res) => res.info.avgRatingString > 4
@@ -69,8 +82,10 @@ const Body = () => {
         >
           Top Rated Restauraunts
         </button>
+        </div>
+        
       </div>
-      <div className="restauraunt-container">
+      <div className="flex flex-wrap">
         {filteredRestauraunt.map((restauraunt) => (
           <Link
             key={restauraunt.info.id}
