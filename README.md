@@ -5,10 +5,10 @@ Header
 
 Body
   --Search
-  --RestaurauntContainer
-  --RestaurauntCard
+  --RestaurantContainer
+  --RestaurantCard
   ----img
-  ----Name of Restauraunt, Star Rating, Cuisine, etc, delivery time
+  ----Name of restaurant, Star Rating, Cuisine, etc, delivery time
 
 Footer
   --Copyright

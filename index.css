@@ -26,18 +26,18 @@
     margin: 10px;
  }
 
- .restauraunt-container {
+ .restaurant-container {
     display: flex;
     flex-wrap: wrap;
  }
 
- .restauraunt-card {
+ .restaurant-card {
     margin: 5px;
     padding: 5px;
     width: 200px;
  }
 
- .restauraunt-card:hover {
+ .restaurant-card:hover {
     cursor: pointer;
     border: 1px solid black;
  }
@@ -46,7 +46,7 @@
     padding: 10px;
  }
 
- .restauraunt-logo {
+ .restaurant-logo {
     width: 100%;
  }
 
